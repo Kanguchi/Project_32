@@ -67,7 +67,7 @@ function setup() {
     'isStatic':false,
   }
 
-  polygon = new Polygon(50, 250, 50);
+  polygon = new Polygon(50, 250, 15);
 
   slingshot = new SlingShot(polygon.body, {x: 80, y: 250});
 
@@ -75,6 +75,7 @@ function setup() {
 }
 
 function draw() {
+  Engine.update(engine);
   background(0);
   drawSprites();
 
