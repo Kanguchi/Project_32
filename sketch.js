@@ -63,6 +63,15 @@ function setup() {
   //stack2row3
   block25 = new Box(600, 90);
 
+  var polygon_options ={
+    'isStatic':false,
+  }
+
+  polygon = new Polygon(50, 250, 50);
+
+  slingshot = new SlingShot(polygon.body, {x: 80, y: 250});
+
+
 }
 
 function draw() {
@@ -111,10 +120,13 @@ function draw() {
   fill(255, 190, 51);
   block25.display();
 
+  polygon.display();
+  slingshot.display();
+
 }
 
 function mouseDragged(){
-  Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+  Matter.Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
 }
 
 
