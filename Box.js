@@ -1,6 +1,7 @@
 class Box{
   constructor(x, y) {
     var options = {
+        'isStatic': false,
         'restitution':0.8,
         'friction':1.0,
         'density':1.0
@@ -18,7 +19,7 @@ class Box{
     rotate(angle);
     //imageMode(CENTER);
     //image(this.image, 0, 0, this.width, this.height);
-    rectMode(CENTER);
+    
     rect(0, 0, this.width, this.height);
     pop();
   }
