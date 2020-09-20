@@ -63,10 +63,7 @@ function setup() {
   //stack2row3
   block25 = new Box(600, 90);
 
-  var polygon_options ={
-    'isStatic':false,
-  }
-
+  
   polygon = new Polygon(50, 250, 15);
 
   slingshot = new SlingShot(polygon.body, {x: 80, y: 250});
