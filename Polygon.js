@@ -19,7 +19,7 @@ class Polygon{
         translate(this.body.position.x, this.body.position.y);
         rotate(angle);
         imageMode(CENTER);
-        image(this.image, 0, 0, this.r/2, this.r/2);
+        image(this.image, 0, 0, 30, 30);
         pop();
       }
 }
