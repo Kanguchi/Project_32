@@ -21,16 +21,20 @@ class Box{
 
   display(){
     //console.log(this.body.speed);
-    var angle = this.body.angle;
+    
     if (this.body.speed < 3){
+      var angle = this.body.angle;
+      var pos = this.body.position;
       push();
-      translate(this.body.position.x, this.body.position.y);
+      translate(pos.x, pos.y);
       rotate(angle);
       rect(0, 0, this.width, this.height);
-      stroke("snow");
       pop();
     } else {
       World.remove(world, this.body);
+      push();
+      this.visibility = this.visibility - 5;
+      pop();
     }
   }
   
