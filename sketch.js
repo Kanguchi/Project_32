@@ -3,21 +3,21 @@ const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
+var engine, world;
 var stand1, stand2;
 var block1;
-var back, backimg;
+var back, backgroundImg;
+
+var bg = "bg1.jpeg";
+var score = 0;
 
 function preload(){
-  backimg = loadImage("background_img.jpg");
+  getBackgroundImg();
 }
 function setup() {
   
   createCanvas(800,400);
   
-  back = createSprite(400, 200, 800, 400);
-  back.addImage(backimg);
-  back.scale = 1.35;
-
   engine = Engine.create();
   world = engine.world;
 
@@ -68,13 +68,17 @@ function setup() {
 
   slingshot = new SlingShot(polygon.body, {x: 80, y: 250});
 
-
 }
 
 function draw() {
+  if(backgroundImg)
+        background(backgroundImg);
+        
+        textSize(20);
+        fill("white");
+        text("SCORE : "+ score, 650, 40);
+
   Engine.update(engine);
-  background(0);
-  drawSprites();
 
   stand1.display();
   stand2.display();
@@ -121,6 +125,32 @@ function draw() {
   polygon.display();
   slingshot.display();
 
+  block1.score();
+  block2.score();
+  block3.score();
+  block4.score();
+  block5.score();
+  block6.score();
+  block7.score();
+  block8.score();
+  block9.score();
+  block10.score();
+  block11.score();
+  block12.score();
+  block13.score();
+  block14.score();
+  block15.score();
+  block16.score();
+  block17.score();
+  block18.score();
+  block19.score();
+  block20.score();
+  block21.score();
+  block22.score();
+  block23.score();
+  block24.score();
+  block25.score();
+
 }
 
 function mouseDragged(){
@@ -136,4 +166,22 @@ function keyPressed(){
   if (keyCode === 32){
     slingshot.attach(polygon.body);
   }
+}
+
+async function getBackgroundImg(){
+  var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+  var responseJSON = await response.json();
+
+  var datetime = responseJSON.datetime;
+  var hour = datetime.slice(11,13);
+  
+  if(hour>=06 && hour<=19){
+      bg = "bg1.jpeg";
+  }
+  else{
+      bg = "bg2.jpg";
+  }
+
+  backgroundImg = loadImage(bg);
+  console.log(backgroundImg);
 }
