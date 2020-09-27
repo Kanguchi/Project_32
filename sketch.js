@@ -8,11 +8,11 @@ var stand1, stand2;
 var block1;
 var back, backgroundImg;
 
-var bg = "bg1.jpeg";
+//var bg = "bg1.jpeg";
 var score = 0;
 
 function preload(){
-  getBackgroundImg();
+  //getBackgroundImg();
   backgroundImg = loadImage("bg2.jpg");
 }
 function setup() {
